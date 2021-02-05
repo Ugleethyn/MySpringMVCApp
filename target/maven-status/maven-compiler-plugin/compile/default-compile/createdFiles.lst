@@ -1,0 +1,9 @@
+emergon\service\ProductService.class
+emergon\entity\Product.class
+emergon\controller\ProductController.class
+emergon\config\DatabaseConfig.class
+emergon\entity\Customer.class
+emergon\service\HomeService.class
+emergon\controller\HomeController.class
+emergon\controller\CustomerController.class
+emergon\service\CustomerService.class
