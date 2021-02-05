@@ -18,8 +18,7 @@ public class HomeService {
 
     public String getWelcome() {
         LocalDateTime time = LocalDateTime.now();
-        String message = "Welcome to our application. The time is " + time;
-        return message;
+        return "Welcome to our application. The time is " + time;
     }
 
     public String getApplicationName() {

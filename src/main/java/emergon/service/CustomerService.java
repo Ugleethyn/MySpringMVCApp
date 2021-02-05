@@ -20,8 +20,7 @@ public class CustomerService {
     CustomerRepo customerRepo;
 
     public List<Customer> getCustomers() {
-        List<Customer> customers = customerRepo.findAll();
-        return customers;
+        return customerRepo.findAll();
     }
 
     public void addCustomer(Customer customer) {

@@ -24,8 +24,7 @@ public class ProductService {
     ProductRepo productRepo;
 
     public List<Product> getProducts() {
-        List<Product> products = productRepo.findAll();
-        return products;
+        return productRepo.findAll();
     }
 
     public void addProduct(Product product) {

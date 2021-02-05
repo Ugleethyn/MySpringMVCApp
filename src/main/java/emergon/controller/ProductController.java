@@ -45,8 +45,7 @@ public class ProductController {
     @RequestMapping(value = "/create", method = RequestMethod.POST)
     public String create(Product c, RedirectAttributes attributes) {
         productService.addProduct(c);
-        String message = c.getPdescr() + " has been successfully added";
-        attributes.addFlashAttribute("message", message);
+        attributes.addFlashAttribute("message", c.getPdescr() + " has been successfully added");
         return "redirect:/product";
     }
 
@@ -59,16 +58,14 @@ public class ProductController {
     @GetMapping("/delete")
     public String delete(@RequestParam("id") int pcode, RedirectAttributes attributes) {
         productService.deleteProduct(pcode);
-        String message = "Product has been successfully deleted";
-        attributes.addFlashAttribute("message", message);
+        attributes.addFlashAttribute("message", "Product has been successfully deleted");
         return "redirect:/product";
     }
 
     @PostMapping("update")
     public String update(Product product, RedirectAttributes attributes) {
         productService.updateProduct(product);
-        String message = "Product has been successfully edited";
-        attributes.addFlashAttribute("message", message);
+        attributes.addFlashAttribute("message", "Product has been successfully edited");
         return "redirect:/product";
     }
 

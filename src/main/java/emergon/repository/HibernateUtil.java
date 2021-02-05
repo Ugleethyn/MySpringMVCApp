@@ -34,8 +34,7 @@ public class HibernateUtil<E> {
     protected List<E> findAll(String query){
         getSession();
         Query myQuery = session.createNamedQuery(query);
-        List<E> list = myQuery.getResultList();
-        return list;
+        return myQuery.getResultList();
     }
     
     protected E save(E entity){

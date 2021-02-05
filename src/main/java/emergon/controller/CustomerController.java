@@ -46,8 +46,7 @@ public class CustomerController {
     @RequestMapping(value = "/create", method = RequestMethod.POST)
     public String create(Customer c, RedirectAttributes attributes) {
         customerService.addCustomer(c);
-        String message = c.getCname() + " has been successfully added";
-        attributes.addFlashAttribute("message", message);
+        attributes.addFlashAttribute("message", c.getCname() + " has been successfully added");
         return "redirect:/customer";
     }
 
@@ -61,16 +60,14 @@ public class CustomerController {
     @GetMapping("/delete")
     public String delete(@RequestParam("id") int ccode, RedirectAttributes attributes) {
         customerService.deleteCustomer(ccode);
-        String message = "Customer has been successfully deleted";
-        attributes.addFlashAttribute("message", message);
+        attributes.addFlashAttribute("message", "Customer has been successfully deleted");
         return "redirect:/customer";
     }
 
     @PostMapping("update")
     public String update(Customer customer, RedirectAttributes attributes) {
         customerService.updateCustomer(customer);
-        String message = "Customer has been successfully edited";
-        attributes.addFlashAttribute("message", message);
+        attributes.addFlashAttribute("message", "Customer has been successfully edited");
         return "redirect:/customer";
     }
 
