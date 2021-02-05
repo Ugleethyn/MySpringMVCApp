@@ -31,10 +31,10 @@ public class CustomerController {
     @Autowired
     private CustomerService customerService;
 
+
     @RequestMapping
     public ModelAndView showCustomers(ModelAndView modelAndView) {
-        List<Customer> customers = customerService.createCustomerList();
-        modelAndView.addObject("listOfCustomers", customers);
+        modelAndView.addObject("listOfCustomers", customerService.getCustomers());
         modelAndView.setViewName("customerList");
         return modelAndView;
     }
@@ -49,7 +49,7 @@ public class CustomerController {
         customerService.addCustomer(c);
         String message = c.getCname() + " has been successfully added";
         attributes.addFlashAttribute("message", message);
-        List<Customer> customers = customerService.createCustomerList();
+        List<Customer> customers = customerService.getCustomers();
         return "redirect:/customer";
     }
 
@@ -62,14 +62,14 @@ public class CustomerController {
 
     @GetMapping("/delete")
     public String delete(@RequestParam("id") int ccode, RedirectAttributes attributes) {
-        customerService.delete(ccode);
+        customerService.deleteCustomer(ccode);
         String message = "Customer has been successfully deleted";
         attributes.addFlashAttribute("message", message);
         return "redirect:/customer";
     }
 
     @PostMapping("update")
-    public String update(Customer customer ,RedirectAttributes attributes) {
+    public String update(Customer customer, RedirectAttributes attributes) {
         customerService.updateCustomer(customer);
         String message = "Customer has been successfully edited";
         attributes.addFlashAttribute("message", message);

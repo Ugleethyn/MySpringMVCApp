@@ -18,7 +18,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 public class DatabaseConfig {
     
     //datasource
-    public DataSource datasource(){
+    public DataSource dataSource(){
         DriverManagerDataSource datasource = new DriverManagerDataSource();
         datasource.setDriverClassName("com.mysql.cj.jdbc.Driver");
         datasource.setUrl("jdbc:mysql://localhost:3306/sales?serverTimezone=Europe/Athens");
@@ -40,7 +40,7 @@ public class DatabaseConfig {
     @Bean (name = "sessionFactory")
     public LocalSessionFactoryBean sessionFactory(){
         LocalSessionFactoryBean sessionFactory = new LocalSessionFactoryBean();
-        sessionFactory.setDataSource(datasource());
+        sessionFactory.setDataSource(dataSource());
         sessionFactory.setHibernateProperties(hibernateProperties());
         sessionFactory.setPackagesToScan("emergon.entity");
         return sessionFactory;

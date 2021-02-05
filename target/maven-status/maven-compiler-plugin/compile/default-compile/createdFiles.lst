@@ -1,9 +1,14 @@
 emergon\service\ProductService.class
-emergon\entity\Product.class
 emergon\controller\ProductController.class
 emergon\config\DatabaseConfig.class
+emergon\controller\HomeController.class
+emergon\service\CustomerService.class
+emergon\entity\Family.class
+emergon\entity\Product.class
+emergon\entity\Salesman.class
+emergon\repository\HibernateUtil.class
+emergon\entity\Sales.class
 emergon\entity\Customer.class
 emergon\service\HomeService.class
-emergon\controller\HomeController.class
 emergon\controller\CustomerController.class
-emergon\service\CustomerService.class
+emergon\repository\CustomerRepo.class

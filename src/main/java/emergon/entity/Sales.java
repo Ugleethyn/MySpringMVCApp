@@ -6,8 +6,7 @@
 package emergon.entity;
 
 import java.io.Serializable;
-import java.math.BigDecimal;
-import java.util.Date;
+import java.time.LocalDate;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -19,8 +18,6 @@ import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
 import javax.xml.bind.annotation.XmlRootElement;
 
 /**
@@ -48,10 +45,9 @@ public class Sales implements Serializable {
     private Integer quant;
     // @Max(value=?)  @Min(value=?)//if you know range of your decimal fields consider using these annotations to enforce field validation
     @Column(name = "cost")
-    private BigDecimal cost;
+    private double cost;
     @Column(name = "sdate")
-    @Temporal(TemporalType.DATE)
-    private Date sdate;
+    private LocalDate sdate;
     @JoinColumn(name = "ccode", referencedColumnName = "ccode")
     @ManyToOne(optional = false)
     private Customer ccode;
@@ -85,19 +81,19 @@ public class Sales implements Serializable {
         this.quant = quant;
     }
 
-    public BigDecimal getCost() {
+    public double getCost() {
         return cost;
     }
 
-    public void setCost(BigDecimal cost) {
+    public void setCost(double cost) {
         this.cost = cost;
     }
 
-    public Date getSdate() {
+    public LocalDate getSdate() {
         return sdate;
     }
 
-    public void setSdate(Date sdate) {
+    public void setSdate(LocalDate sdate) {
         this.sdate = sdate;
     }
 

@@ -21,10 +21,10 @@
             <c:url value="/customer/update" var="link"></c:url>
         </c:if>
         <form action="${link}" method="POST">
-            <label for="ccode">Ccode</label>
-            <input id="ccode" type="number" name="ccode" value="${customerToEdit.ccode}">
+            <label for="ccode" hidden>Ccode</label>
+            <input id="ccode" type="number" name="ccode" value="${customerToEdit.ccode}" hidden readonly = "true">
             <br>
-            <label for="cname">Ccode</label>
+            <label for="cname">Cname</label>
             <input id="cname" type="text" name="cname" value="${customerToEdit.cname}">
             <br>
             <input type="submit" value="submit">
