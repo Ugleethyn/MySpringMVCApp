@@ -29,7 +29,7 @@
                         <td>${product.pcode}</td>
                         <td>${product.pdescr}</td>
                         <td>${product.pprice}</td>
-                        <td><a href="${pageContext.request.contextPath}/customer/edit">Edit</a>/<a href="${pageContext.request.contextPath}/customer/delete">Delete</a></td>
+                        <td><a href="${pageContext.request.contextPath}/product/update/${product.pcode}">Edit</a>/<a href="${pageContext.request.contextPath}/product/delete?id=${product.pcode}">Delete</a></td>
                     </tr>
                 </c:forEach>
             </table>

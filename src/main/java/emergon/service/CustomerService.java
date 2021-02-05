@@ -18,8 +18,6 @@ public class CustomerService {
 
     @Autowired
     CustomerRepo customerRepo;
-    
-    private List<Customer> customers;
 
     public List<Customer> getCustomers() {
         List<Customer> customers = customerRepo.findAll();

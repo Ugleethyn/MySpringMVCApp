@@ -3,6 +3,7 @@ emergon\controller\ProductController.class
 emergon\config\DatabaseConfig.class
 emergon\controller\HomeController.class
 emergon\service\CustomerService.class
+emergon\repository\ProductRepo.class
 emergon\entity\Family.class
 emergon\entity\Product.class
 emergon\entity\Salesman.class

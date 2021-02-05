@@ -7,7 +7,6 @@ package emergon.controller;
 
 import emergon.entity.Customer;
 import emergon.service.CustomerService;
-import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -49,7 +48,6 @@ public class CustomerController {
         customerService.addCustomer(c);
         String message = c.getCname() + " has been successfully added";
         attributes.addFlashAttribute("message", message);
-        List<Customer> customers = customerService.getCustomers();
         return "redirect:/customer";
     }
 
