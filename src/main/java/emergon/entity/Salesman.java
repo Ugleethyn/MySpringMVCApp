@@ -62,7 +62,7 @@ public class Salesman implements Serializable {
     @Min(value = 0)
     @Column(name = "scomm")
     private BigDecimal scomm;
-    @OneToMany(mappedBy = "salesman",cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "salesman",cascade = CascadeType.ALL)
     private List<Family> familyList;
     @OneToMany(mappedBy = "smcode")
     private List<Sales> salesList;

@@ -15,11 +15,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 @Controller
@@ -29,9 +27,12 @@ public class FamilyController {
     @Autowired
     private FamilyService familyService;
 
+    private int salesmanId;
+
     @GetMapping("/{scode}")
     public String showFamily(@PathVariable("scode") int scode, Model model) {
-        List<Family>list = familyService.getFamilyBySalesman(scode);
+        this.salesmanId = scode;
+        List<Family> list = familyService.getFamilyBySalesman(scode);
         model.addAttribute("listOfFamily", list);
         return "family/familyList";
     }
@@ -59,7 +60,7 @@ public class FamilyController {
         familyService.deleteFamily(id);
         String minima = "Family deleted successfully!";
         attributes.addFlashAttribute("message", minima);
-        return "redirect:/family";
+        return "redirect:/family/"+salesmanId;
     }
 
     //localhost:8080/MySpringMVCApp/family/update/30
