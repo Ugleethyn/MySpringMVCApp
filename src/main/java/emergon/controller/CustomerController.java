@@ -8,8 +8,10 @@ package emergon.controller;
 import emergon.entity.Customer;
 import emergon.service.CustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -30,7 +32,6 @@ public class CustomerController {
     @Autowired
     private CustomerService customerService;
 
-
     @RequestMapping
     public ModelAndView showCustomers(ModelAndView modelAndView) {
         modelAndView.addObject("listOfCustomers", customerService.getCustomers());
@@ -50,6 +51,13 @@ public class CustomerController {
         return "redirect:/customer";
     }
 
+    @GetMapping("/delete")
+    public String delete(@RequestParam("id") int ccode, RedirectAttributes attributes) {
+            customerService.deleteCustomer(ccode);
+        attributes.addFlashAttribute("message", "Customer has been successfully deleted");
+        return "redirect:/customer";
+    }
+
     @GetMapping("/update/{ccode}")
     public String showFormUpdate(@PathVariable(name = "ccode") int ccode, Model model) {
         Customer customer = customerService.getCustomerById(ccode);
@@ -57,18 +65,17 @@ public class CustomerController {
         return "customerForm";
     }
 
-    @GetMapping("/delete")
-    public String delete(@RequestParam("id") int ccode, RedirectAttributes attributes) {
-        customerService.deleteCustomer(ccode);
-        attributes.addFlashAttribute("message", "Customer has been successfully deleted");
-        return "redirect:/customer";
-    }
-
     @PostMapping("update")
     public String update(Customer customer, RedirectAttributes attributes) {
         customerService.updateCustomer(customer);
         attributes.addFlashAttribute("message", "Customer has been successfully edited");
         return "redirect:/customer";
+    }
+
+    @ExceptionHandler(DataIntegrityViolationException.class)
+    public String handleDataIntegrityViolationException(RedirectAttributes attributes) {
+        attributes.addFlashAttribute("message", "This Customer cannot be deleted");
+        return "redirect:/trainers";
     }
 
 }

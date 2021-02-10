@@ -10,10 +10,12 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>JSP Page</title>
+        <link href="<c:url value='/resources/css/style.css' />" rel="stylesheet">
     </head>
     <body>
         <h1>${myMessage}</h1>
         <a href="${pageContext.request.contextPath}/customer">Customers</a><br>
-        <a href="${pageContext.request.contextPath}/product">Product</a>
+        <a href="${pageContext.request.contextPath}/product">Product</a><br>
+        <a href="${pageContext.request.contextPath}/salesman">Salesmen</a>
     </body>
 </html>

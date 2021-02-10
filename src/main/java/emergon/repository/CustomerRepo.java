@@ -16,7 +16,6 @@ public class CustomerRepo extends HibernateUtil<Customer>{
         return super.findAll("Customer.findAll");
     }
     
-    @Override
     public Customer save(Customer customer){
         return super.save(customer);
     }

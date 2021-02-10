@@ -21,14 +21,11 @@
             <c:url value="/product/update" var="link"></c:url>
         </c:if>
         <form action="${link}" method="POST">
-            <label for="pcode" hidden>Pcode</label>
-            <input id="pcode" type="number" name="pcode" value="${productToEdit.pcode}" hidden readonly = "true">
+            <input id="pcode" type="number" name="pcode" value="${productToEdit.pcode}" placeholder="ID" hidden="">
             <br>
-            <label for="pdescr">Pdescr</label>
-            <input id="pdescr" type="text" name="pdescr" value="${productToEdit.pdescr}">
+            <input id="pdescr" type="text" name="pdescr" value="${productToEdit.pdescr}" placeholder="Description">
             <br>
-            <label for="pprice">Pprice</label>
-            <input id="pprice" type="number" name="pprice" value="${productToEdit.pprice}">
+            <input id="pprice" type="number" name="pprice" value="${productToEdit.pprice}" placeholder="Price">
             <br>
             <input type="submit" value="submit">
         </form>

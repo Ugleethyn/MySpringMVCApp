@@ -21,10 +21,6 @@ public class ProductRepo  extends HibernateUtil<Product> {
         return super.findAll("Product.findAll");
     }
     
-    public Product save(Product product){
-        return super.save(product);
-    }
-    
     public Product find(int pcode){
         return super.find(Product.class, pcode);
     }

@@ -5,20 +5,13 @@
  */
 package emergon.repository;
 
-/**
- *
- * @author Ugleethyn
- */
+import emergon.entity.Salesman;
 import java.util.List;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 
-/**
- *
- * @author user
- */
 public class HibernateUtil<E> {
 
     @Autowired
@@ -29,31 +22,37 @@ public class HibernateUtil<E> {
         session = sessionFactory.getCurrentSession();//One for each connection to DB
         return session;
     }
-    
+
     //Methods for CRUD operations
-    protected List<E> findAll(String query){
+    protected List<E> findAll(String query) {
         getSession();
         Query myQuery = session.createNamedQuery(query);
         return myQuery.getResultList();
     }
-    
-    protected E save(E entity){
+
+    public E save(E entity) {
         session = getSession();
         session.saveOrUpdate(entity);
         return entity;
     }
-    
-    protected E find(Class<E> type, int id){
+
+    protected E find(Class<E> type, int id) {
         session = getSession();
         E e = session.find(type, id);
         return e;
     }
-    
-    public void delete(Class<E> type, int id){
+
+    public void delete(Class<E> type, int id) {
         session = getSession();
         E e = session.find(type, id);
         session.remove(e);
     }
-    
-    
+
+    protected List<E> findBySalesman(String query , int scode) {
+        getSession();
+        Query myQuery = session.createNamedQuery(query);
+        myQuery.setParameter("scode", scode);
+        return myQuery.getResultList();
+    }
+
 }

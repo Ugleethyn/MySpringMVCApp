@@ -34,6 +34,7 @@ import javax.xml.bind.annotation.XmlRootElement;
     , @NamedQuery(name = "Family.findByFid", query = "SELECT f FROM Family f WHERE f.fid = :fid")
     , @NamedQuery(name = "Family.findByFname", query = "SELECT f FROM Family f WHERE f.fname = :fname")
     , @NamedQuery(name = "Family.findByFrelationship", query = "SELECT f FROM Family f WHERE f.frelationship = :frelationship")
+    , @NamedQuery(name = "Family.findBySalesman", query = "SELECT f FROM Family f JOIN FETCH f.salesman s WHERE s.scode = :scode")
     , @NamedQuery(name = "Family.findByDob", query = "SELECT f FROM Family f WHERE f.dob = :dob")})
 public class Family implements Serializable {
 
@@ -133,5 +134,5 @@ public class Family implements Serializable {
     public String toString() {
         return "emergon.entity.Family[ fid=" + fid + " ]";
     }
-    
+
 }
