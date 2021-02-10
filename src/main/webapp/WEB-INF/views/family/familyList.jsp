@@ -32,6 +32,7 @@
                         <td>${family.fname}</td>
                         <td>${family.frelationship}</td>
                         <td>${family.dob}</td>
+                        <td><a href="${pageContext.request.contextPath}/family/update/${family.fid}">Edit</a>/<a href="${pageContext.request.contextPath}/family/delete?id=${family.fid}">Delete</a></td>
                     </tr>
                 </c:forEach>
             </table>

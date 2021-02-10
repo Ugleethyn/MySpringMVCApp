@@ -35,8 +35,8 @@ public class FamilyRepo extends HibernateUtil<Family> implements CrudRepo<Family
         super.delete(Family.class, id);
     }
 
-    public List<Family> findAllBySalesman(int salesman) {
-        return super.findBySalesman("Family.findBySalesman", salesman);
+    public List<Family> findAllBySalesman(int scode) {
+        return super.findBySalesman("Family.findBySalesman", scode);
     }
 
     @Override

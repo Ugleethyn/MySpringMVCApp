@@ -56,9 +56,8 @@ public class FamilyController {
 
     @GetMapping("/delete")
     public String delete(@RequestParam("id") int id, RedirectAttributes attributes) {
-        String minima;
         familyService.deleteFamily(id);
-        minima = "Family deleted successfully!";
+        String minima = "Family deleted successfully!";
         attributes.addFlashAttribute("message", minima);
         return "redirect:/family";
     }

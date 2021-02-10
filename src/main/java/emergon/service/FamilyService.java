@@ -28,8 +28,8 @@ public class FamilyService {
         return familyRepo.findAll();
     }
     
-    public List<Family> getFamilyBySalesman(int salesman){
-        return familyRepo.findAllBySalesman(salesman);
+    public List<Family> getFamilyBySalesman(int scode){
+        return familyRepo.findAllBySalesman(scode);
     }
 
     public Family saveFamily(Family family) {

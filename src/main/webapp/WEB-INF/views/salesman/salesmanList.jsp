@@ -17,7 +17,7 @@
         <div>
             <p>${message}</p>
             <a href="${pageContext.request.contextPath}/salesman/create">Add Salesman</a>
-            <h3>Customers</h3>
+            <h3>Salesmen</h3>
             <table border="1">
                 <tr>
                     <th>ID</th>
